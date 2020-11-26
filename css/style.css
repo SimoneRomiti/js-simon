@@ -34,3 +34,13 @@ h1{
   font-size: 80px;
   font-weight: 700;
 }
+
+@media screen and (max-height: 500px) {
+
+  #box{
+    height: 200px;
+    width: 200px;
+    line-height: 200px;
+  }
+
+}
