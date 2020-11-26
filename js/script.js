@@ -5,6 +5,7 @@
 $(document).ready(
   function(){
 
+    // VARIABILI
     var arrayCasuali = [];
     var numeroCasuale;
     var i = 0;
@@ -15,11 +16,13 @@ $(document).ready(
     var indovinato = false;
     var arrayResult = [];
 
+    // FUNZIONE NUMERI CASUALI
     function random(max, min){
       numeroCasuale = Math.floor(Math.random() * (max - min) + min);
       return numeroCasuale;
     }
 
+    // GENERATORE NUMERI CASUALI E CONTROLLO DOPPIONI CON INCLUDES()
     i = 0;
     while(i < 5){
       numeroCasuale = random(100, 1);
@@ -29,6 +32,7 @@ $(document).ready(
       }
     }
 
+    // GENERATORE NUMERI CASUALI E CONTROLLO DOPPIONI CON CICLI MANUALI
     // for(i = 0; i < 5; i++){
     //   numeroCasuale = random(100, 1);
     //   k = 0;
@@ -47,14 +51,16 @@ $(document).ready(
     console.log(arrayCasuali);
     alert(arrayCasuali);
 
-
+    // FUNZIONE CON RITARDO DI 30 SECONDI
     setTimeout(function(){
+      // CHIEDO ALL'UTENTE 5 NUMERI TRAMITE PROMPT
       for(i = 0; i < 5; i++){
         numeroUtente = parseInt(prompt("Inserisci il numero che era in posizione " + (i + 1)));
         arrayUtente.push(numeroUtente);
       }
       console.log(arrayUtente);
 
+      // CONTROLLO NUMERI INDOVINATI CON INCLUDES
       for(i = 0; i < 5; i++){
         if(arrayCasuali.includes(arrayUtente[i])){
           counter++;
@@ -62,6 +68,7 @@ $(document).ready(
         }
       }
 
+      // CONTROLLO NUMERI INDOVINATI CON CICLI MANUALI
       // for(i = 0; i < 5; i++){
       //   k = 0;
       //   indovinato = false;
@@ -78,13 +85,17 @@ $(document).ready(
       // }
 
       alert("Hai indovinato " + counter + " numeri su 5\n" + "I numeri indovinati sono " + arrayResult);
-    }, 5000);
+    }, 30000);
 
+    // COUNTDOWN DA 30 A 0 SU CONSOLE
     var x = 30;
     console.log(x);
     var countdown = setInterval(function(){
       x--;
       console.log(x);
+      if(x == 0){
+        clearInterval(countdown);
+      }
     }, 1000);
 
   }
