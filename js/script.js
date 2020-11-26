@@ -12,6 +12,7 @@ $(document).ready(
     var numeroUtente;
     var arrayUtente = [];
     var counter = 0;
+    var indovinato = false;
     var arrayResult = [];
 
     function myFunction(max, min){
@@ -20,22 +21,33 @@ $(document).ready(
       return numeroCasuale;
     }
 
-
-    for(i = 0; i < 5; i++){
+    i = 0;
+    while(i < 5){
       numeroCasuale = myFunction(100, 1);
-      k = 0;
-      while(k < arrayCasuali.length){
-        if(numeroCasuale == arrayCasuali[k]){
-          numeroCasuale = myFunction(100, 1);
-          k = 0;
-        } else {
-            k++;
-        }
+      if(arrayCasuali.includes(numeroCasuale) == false){
+        arrayCasuali.push(numeroCasuale);
+        i++;
       }
-      arrayCasuali.push(numeroCasuale);
     }
 
+    // for(i = 0; i < 5; i++){
+    //   numeroCasuale = myFunction(100, 1);
+    //   k = 0;
+    //   while(k < arrayCasuali.length){
+    //     if(numeroCasuale == arrayCasuali[k]){
+    //       numeroCasuale = myFunction(100, 1);
+    //       k = 0;
+    //     } else {
+    //         k++;
+    //     }
+    //   }
+    //   arrayCasuali.push(numeroCasuale);
+    // }
+
+
+    console.log(arrayCasuali);
     alert(arrayCasuali);
+
 
     setTimeout(function(){
       for(i = 0; i < 5; i++){
@@ -43,17 +55,38 @@ $(document).ready(
         arrayUtente.push(numeroUtente);
       }
       console.log(arrayUtente);
+
       for(i = 0; i < 5; i++){
-        for(k = 0; k < 5; k++){
-          if(arrayCasuali[i] == arrayUtente[k]){
-            counter++;
-            console.log(counter);
-            arrayResult.push(arrayUtente[k]);
-          }
+        if(arrayCasuali.includes(arrayUtente[i])){
+          counter++;
+          arrayResult.push(arrayUtente[i]);
         }
       }
+
+      // for(i = 0; i < 5; i++){
+      //   k = 0;
+      //   indovinato = false;
+      //   while(k < 5 && indovinato == false){
+      //     if(arrayCasuali[i] == arrayUtente[k]){
+      //       indovinato = true;
+      //       counter++;
+      //       console.log(counter);
+      //       arrayResult.push(arrayUtente[k]);
+      //     } else{
+      //       k++;
+      //     }
+      //   }
+      // }
+
       alert("Hai indovinato " + counter + " numeri su 5\n" + "I numeri indovinati sono " + arrayResult);
     }, 5000);
+
+    var x = 30;
+    console.log(x);
+    var countdown = setInterval(function(){
+      x--;
+      console.log(x);
+    }, 1000);
 
   }
 );
