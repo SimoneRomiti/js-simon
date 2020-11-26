@@ -15,15 +15,14 @@ $(document).ready(
     var indovinato = false;
     var arrayResult = [];
 
-    function myFunction(max, min){
+    function random(max, min){
       numeroCasuale = Math.floor(Math.random() * (max - min) + min);
-
       return numeroCasuale;
     }
 
     i = 0;
     while(i < 5){
-      numeroCasuale = myFunction(100, 1);
+      numeroCasuale = random(100, 1);
       if(arrayCasuali.includes(numeroCasuale) == false){
         arrayCasuali.push(numeroCasuale);
         i++;
@@ -31,11 +30,11 @@ $(document).ready(
     }
 
     // for(i = 0; i < 5; i++){
-    //   numeroCasuale = myFunction(100, 1);
+    //   numeroCasuale = random(100, 1);
     //   k = 0;
     //   while(k < arrayCasuali.length){
     //     if(numeroCasuale == arrayCasuali[k]){
-    //       numeroCasuale = myFunction(100, 1);
+    //       numeroCasuale = random(100, 1);
     //       k = 0;
     //     } else {
     //         k++;
