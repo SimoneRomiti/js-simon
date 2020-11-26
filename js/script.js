@@ -89,12 +89,13 @@ $(document).ready(
     }, 30000);
 
     // COUNTDOWN DA 30 A 0 SU CONSOLE
-    var x = 30;
-    console.log(x);
+    var x = 29;
+    $("#box").text(x);
     var countdown = setInterval(function(){
       x--;
-      console.log(x);
+      $("#box").text(x);
       if(x == 0){
+        $("#box").css("color", "red");
         clearInterval(countdown);
       }
     }, 1000);
