@@ -12,7 +12,6 @@ $(document).ready(
     var k = 0;
     var numeroUtente;
     var arrayUtente = [];
-    var counter = 0;
     var indovinato = false;
     var arrayResult = [];
 
@@ -22,7 +21,7 @@ $(document).ready(
       return numeroCasuale;
     }
 
-    // GENERATORE NUMERI CASUALI E CONTROLLO DOPPIONI CON INCLUDES()
+    // GENERATORE 5 NUMERI CASUALI E CONTROLLO DOPPIONI CON INCLUDES()
     i = 0;
     while(i < 5){
       numeroCasuale = random(100, 1);
@@ -47,15 +46,13 @@ $(document).ready(
     //   arrayCasuali.push(numeroCasuale);
     // }
 
-
-    console.log(arrayCasuali);
     alert(arrayCasuali);
 
     // FUNZIONE CON RITARDO DI 30 SECONDI
     setTimeout(function(){
       // CHIEDO ALL'UTENTE 5 NUMERI TRAMITE PROMPT
       for(i = 0; i < 5; i++){
-        numeroUtente = parseInt(prompt("Inserisci il numero che era in posizione " + (i + 1)));
+        numeroUtente = parseInt(prompt("Prompt N° " + (i + 1) + "\nInserisci un numero"));
         arrayUtente.push(numeroUtente);
       }
       console.log(arrayUtente);
@@ -63,7 +60,6 @@ $(document).ready(
       // CONTROLLO NUMERI INDOVINATI CON INCLUDES
       for(i = 0; i < 5; i++){
         if(arrayCasuali.includes(arrayUtente[i])){
-          counter++;
           arrayResult.push(arrayUtente[i]);
         }
       }
@@ -75,8 +71,6 @@ $(document).ready(
       //   while(k < 5 && indovinato == false){
       //     if(arrayCasuali[i] == arrayUtente[k]){
       //       indovinato = true;
-      //       counter++;
-      //       console.log(counter);
       //       arrayResult.push(arrayUtente[k]);
       //     } else{
       //       k++;
@@ -84,7 +78,14 @@ $(document).ready(
       //   }
       // }
 
-      alert("Hai indovinato " + counter + " numeri su 5\n" + "I numeri indovinati sono " + arrayResult);
+
+      if(arrayResult.length == 0){
+        alert("Non hai indovinato nessun numero!\nPunteggio " + arrayResult.length + " su 5\n");
+      } else if(arrayResult.length == 5){
+        alert("Hai indovinato tutti i numeri!\nPunteggio " + arrayResult.length + " su 5\n" + "I numeri indovinati sono " + arrayResult);
+      } else{
+        alert("Hai indovinato " + arrayResult.length + " numeri su 5\n" + "I numeri indovinati sono " + arrayResult);
+      }
     }, 30000);
 
     // COUNTDOWN DA 30 A 0 SU CONSOLE
@@ -97,6 +98,5 @@ $(document).ready(
         clearInterval(countdown);
       }
     }, 1000);
-
   }
 );
