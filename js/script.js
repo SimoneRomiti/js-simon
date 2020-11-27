@@ -2,6 +2,13 @@
 // Dopo 30 secondi l’utente deve inserire, un prompt alla volta, i numeri che ha visto precedentemente.
 // Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati.
 
+
+// FUNZIONE NUMERI CASUALI
+function random(max, min){
+  numeroCasuale = Math.floor(Math.random() * (max - min) + min);
+  return numeroCasuale;
+}
+
 $(document).ready(
   function(){
 
@@ -14,12 +21,6 @@ $(document).ready(
     var arrayUtente = [];
     var indovinato = false;
     var arrayResult = [];
-
-    // FUNZIONE NUMERI CASUALI
-    function random(max, min){
-      numeroCasuale = Math.floor(Math.random() * (max - min) + min);
-      return numeroCasuale;
-    }
 
     // GENERATORE 5 NUMERI CASUALI E CONTROLLO DOPPIONI CON INCLUDES()
     i = 0;
